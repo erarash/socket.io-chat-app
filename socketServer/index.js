@@ -1,3 +1,4 @@
+//socket server
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
@@ -8,8 +9,10 @@ const PORT = 3000;
 
 io.on("connection", socket => {
   console.log("a user has connected");
-
   messagelistener(socket);
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 });
 
 messagelistener = socket => {
