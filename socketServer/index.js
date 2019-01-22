@@ -8,8 +8,10 @@ const path = require("path");
 const PORT = 3000;
 
 io.on("connection", socket => {
-  console.log("a user has connected");
+  console.log(`a new user id:${socket.id} has connected`);
+
   messagelistener(socket);
+
   socket.on("disconnect", () => {
     console.log("user disconnected");
   });
@@ -18,10 +20,10 @@ io.on("connection", socket => {
 messagelistener = socket => {
   socket.on("message", message => {
     console.log(message);
-    socket.broadcast.emit("message", message);
+    // socket.broadcast.emit("message", message);
   });
 };
 
 http.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`socket server listening on port ${PORT}`);
 });

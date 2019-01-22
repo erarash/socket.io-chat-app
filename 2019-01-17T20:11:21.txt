@@ -1,0 +1,12 @@
+0:00
+7:25 - warmup complete
+21:00 - difficulty going through assertions after initial problem
+36:28 - mentioned use of typeof 
+39:48 - uderstood tests however, isnt calling the fuction 
+43:11 - told him to continue to the function since the last two tests are almost the same
+46:26 - had right idea to iterate through the object however used old syntax. pointed him in direction of for..in loop
+51:04 - noted that he usually uses a pencil and paper to visualize his thought processs
+57:03 - hes on the right track. he knows what to do but has a lot of syntactical errors from what it looks like
+59:09 - doesnt seem to understand how to access specific object properties
+60:54 - caught one syntactical error however doesnt know bracket notation for objects or how to properly implement a for..in loop
+61:27 - winding down 

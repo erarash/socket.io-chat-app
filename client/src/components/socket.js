@@ -2,8 +2,6 @@
 import socketIo from "socket.io-client";
 const socket = socketIo("http://localhost:3000");
 
-socket.emit("hello", "from socket.js in react");
-
 let sendMessage = (message, cb) => {
   socket.emit("message", message);
 };

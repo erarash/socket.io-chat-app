@@ -1,15 +1,15 @@
 import React from "react";
-import axios from "axios";
 import MessageList from "./MessageList.jsx";
+// import styles from "../css/App.css";
 import { socket, sendMessage, listenForMessage } from "./socket.js";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
-      messages: []
+      message: ""
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -17,13 +17,13 @@ export default class App extends React.Component {
       this.setState({
         message: message
       });
-      this.state.messages.push(message);
     });
   }
 
-  handleInput(e) {
-    this.setState({
-      message: e.target.value
+  handleClick(e) {
+    e.preventDefault();
+    sendMessage(message => {
+      console.log(message);
     });
   }
 
@@ -31,11 +31,12 @@ export default class App extends React.Component {
     return (
       <div>
         <h1>Socketchat</h1>
-        <MessageList messages={this.state.messages} />
+        {/* <MessageList messages={this.state.messages} /> */}
         <div>
-          <form>
-            <input type="text" onChange={e => this.handleInput(e)} />
-            <button>Add </button>
+          <ul id="messages" />
+          <form action="">
+            <input id="m" autoComplete="off" />
+            <button onClick={e => this.handleClick(e)}>Send</button>
           </form>
         </div>
       </div>
